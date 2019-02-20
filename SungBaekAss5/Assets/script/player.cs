@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class player : MonoBehaviour
 {
     public float speed;
-    private Rigidbody rb;
+    //private Rigidbody rb;
     public Text countText;
     private int count;
     public Animator animate;
+    public float rotate = 50;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         count = 0;
         animate = GetComponent<Animator>();
         countText.text = "Score: " + count.ToString();
@@ -23,6 +24,23 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+        }
+        //Rotation
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * -rotate);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.down * Time.deltaTime * -rotate);
+        }
         //Animations
         //Walk forward
         if (Input.GetKey(KeyCode.W))
@@ -66,28 +84,6 @@ public class player : MonoBehaviour
             animate.SetBool("idle", true);
         }*/
 
-        
-    }
-    void FixedUpdate()
-    {
-        float movehoriz = Input.GetAxis("Horizontal");
-        float movevert = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(movehoriz, 0, movevert);
-
-        rb.AddForce(movement * speed);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Rigidbody>().velocity += new Vector3(0, 10, 0);
-            
-        }
-        // superspeed
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Vector3 movements = new Vector3(movehoriz * 4, 0, movevert * 4);
-            rb.AddForce(movements * speed);
-        }
         
     }
 
