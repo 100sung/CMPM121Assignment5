@@ -12,6 +12,13 @@ public class heroscript : MonoBehaviour
     public Animator door;
     public float rotate = 50;
     public float running;
+    GameObject part;
+    GameObject part1;
+    GameObject part2;
+    GameObject part3;
+    GameObject part4;
+    GameObject part5;
+    GameObject part6;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +27,20 @@ public class heroscript : MonoBehaviour
         count = 0;
         animate = GetComponent<Animator>();
         countText.text = "Score: " + count.ToString();
+        part = GameObject.Find("part");
+        part1 = GameObject.Find("part1");
+        part2 = GameObject.Find("part2");
+        part3 = GameObject.Find("part3");
+        part4 = GameObject.Find("part4");
+        part5 = GameObject.Find("part5");
+        part6 = GameObject.Find("part6");
+        part.SetActive(false);
+        part1.SetActive(false);
+        part2.SetActive(false);
+        part3.SetActive(false);
+        part4.SetActive(false);
+        part5.SetActive(false);
+        part6.SetActive(false);
     }
 
     // Update is called once per frame
