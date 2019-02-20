@@ -16,7 +16,7 @@ public class rotatescript : MonoBehaviour
     void Start()
     {
 
-        
+        /*
         part = GameObject.Find("part");
         part1 = GameObject.Find("part1");
         part2 = GameObject.Find("part2");
@@ -30,14 +30,14 @@ public class rotatescript : MonoBehaviour
         part3.SetActive(false);
         part4.SetActive(false);
         part5.SetActive(false);
-        part6.SetActive(false);
+        part6.SetActive(false);*/
     }
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(new Vector3(20, 50, 70) * Time.deltaTime);
     }
-    
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -78,6 +78,6 @@ public class rotatescript : MonoBehaviour
                 part6.SetActive(true);
             }
         }
-    }
+    }*/
     
 }
