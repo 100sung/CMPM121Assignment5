@@ -93,7 +93,7 @@ public class player : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             count++;
-            countText.text = "Score: " + count.ToString();
+            countText.text = "Collect the medicine to open the door. " + 7 + count.ToString() + " left";
         }
         
     }
