@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class rotatescript : MonoBehaviour
 {
-    
+    public ParticleSystem stuff;
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(new Vector3(20, 50, 70) * Time.deltaTime);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Instantiate(stuff, transform.position, Quaternion.identity);
+        }
     }
 }
